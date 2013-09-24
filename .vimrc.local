@@ -1,0 +1,19 @@
+colorscheme molokai
+
+ab pst :r !pbpaste
+
+" Highlight the cursor column, but only for the active window
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+autocmd VimEnter,Colorscheme * :hi cursorcolumn :hi guibg=#1c1c1c ctermbg=236
+" Similar to multiple cursors in Sublime Text
+Bundle 'terryma/vim-multiple-cursors'
+
+" Indent-Guides
+Bundle 'Indent-Guides'
+" let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#d75f00 ctermbg=166
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  guibg=#005fd7 ctermbg=026
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#1c1c1c ctermbg=236
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#303030 ctermbg=234

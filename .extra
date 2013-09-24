@@ -1,0 +1,25 @@
+
+# Aliases
+alias srcrc='source ~/.bash_profile'
+
+# Functions
+
+# gcd - Do a git clone and then cd into the checked out repo.
+function gcd() {
+    REPONAME=$(node -e "console.log(process.argv[1].match(/.*?\/([a-zA-Z0-9\-]+).git/)[1]);" $1)
+    git clone $1 && cd "${REPONAME}"
+}
+
+function mcd() {
+    mkdir $1 && cd $1
+}
+
+# Make a tar.gz archive of a directory
+#TODO: refactor so that being in the parent directory isn't required
+function tgzdir() {
+    tar -zcf "${1}.tar.gz" $1
+}
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+
+export PATH="/Users/slara/.rvm/gems/ruby-1.9.1-p431/bin:/usr/local/bin:$PATH"
